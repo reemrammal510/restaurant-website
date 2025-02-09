@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Overview</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Inline Custom CSS -->
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .content-area {
+      margin-top: 80px;
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      color: #E67E22;
+      /* Dark orange accent */
+    }
+
+    /* Custom Navbar */
+    .custom-navbar {
+      background-color: darkred;
+      padding: 15px 0;
+    }
+
+    .custom-navbar .navbar-brand {
+      font-size: 28px;
+      font-weight: 600;
+      color: #fff !important;
+    }
+
+    .custom-navbar .nav-link {
+      font-size: 16px;
+      color: #fff !important;
+      margin-left: 20px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .custom-navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background-color: #E67E22;
+      transition: width 0.3s ease;
+    }
+
+    .custom-navbar .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Specialties Section */
+    .specialty-container {
+      margin-bottom: 30px;
+    }
+
+    .specialty {
+      position: relative;
+      width: 100%;
+      padding-bottom: 75%;
+      /* 4:3 Aspect Ratio */
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .specialty:hover {
+      transform: scale(1.05);
+    }
+
+    .specialty-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(230, 126, 34, 0.7);
+      /* Dark orange overlay */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .specialty:hover .specialty-overlay {
+      opacity: 1;
+    }
+
+    .specialty-overlay h4 {
+      color: #fff;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    /* Our Story Section */
+    #our-story img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    #our-story p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* Contact Section */
+    #contact .form-control {
+      border-radius: 0;
+      font-size: 16px;
+      padding: 12px;
+    }
+
+    #contact .btn {
+      background-color: #E67E22;
+      border: none;
+      border-radius: 0;
+      transition: background-color 0.3s ease;
+    }
+
+    #contact .btn:hover {
+      background-color: #CF711F;
+    }
+
+    /* Custom Footer */
+    .custom-footer {
+      background-color: darkred;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 28px;
+      }
+
+      .custom-navbar .nav-link {
+        font-size: 14px;
+        margin-left: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Fixed Header with Custom Navbar -->
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Restaurant</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="reservation.html">Reservation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container content-area">
+    <!-- Section 1: Our Specialties with Image Hover Effects -->
+    <section id="specialties" class="my-5">
+      <h2 class="section-title">Our Specialties</h2>
+      <div class="row">
+        <!-- Shawarma -->
+        <div class="col-md-3 col-sm-6 specialty-container">
+          <div class="specialty" style="background-image: url('../images/shawarma.jpg');">
+            <div class="specialty-overlay">
+              <h4>Shawarma</h4>
+            </div>
+          </div>
+        </div>
+        <!-- Tabouli -->
+        <div class="col-md-3 col-sm-6 specialty-container">
+          <div class="specialty" style="background-image: url('../images/tabouli.jpg');">
+            <div class="specialty-overlay">
+              <h4>Tabouli</h4>
+            </div>
+          </div>
+        </div>
+        <!-- Homous -->
+        <div class="col-md-3 col-sm-6 specialty-container">
+          <div class="specialty" style="background-image: url('../images/homous.jpg');">
+            <div class="specialty-overlay">
+              <h4>Homous</h4>
+            </div>
+          </div>
+        </div>
+        <!-- Mashawi -->
+        <div class="col-md-3 col-sm-6 specialty-container">
+          <div class="specialty" style="background-image: url('../images/mashawi.jpg');">
+            <div class="specialty-overlay">
+              <h4>Mashawi</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Our Story (Image on Left, Text on Right) -->
+    <section id="our-story" class="my-5">
+      <h2 class="section-title">Our Story</h2>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="../images/our-story.jpg" class="img-fluid" alt="Our Story" />
+        </div>
+        <div class="col-md-6">
+          <p>
+            From a humble kitchen to serving all of Lebanon, our journey is built on passion, tradition, and culinary
+            excellence.
+            We pride ourselves on authentic Lebanese dishes, fresh ingredients, and unforgettable flavors.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Contact Us -->
+    <section id="contact" class="my-5">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" class="form-control" id="contactName" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="contactEmail" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="contactMessage" rows="4" placeholder="Your Message"
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+          <div id="contactFeedback" class="mt-3"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fixed Footer -->
+  <footer class="custom-footer">
+    <div class="container">
+      <p>&copy; 2025 Restaurant. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and Dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    // Contact Form Validation
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var name = document.getElementById("contactName").value.trim();
+      var email = document.getElementById("contactEmail").value.trim();
+      var message = document.getElementById("contactMessage").value.trim();
+      if (name === "" || email === "" || message === "") {
+        document.getElementById("contactFeedback").innerHTML =
+          '<div class="alert alert-danger">Please fill in all fields.</div>';
+      } else {
+        document.getElementById("contactFeedback").innerHTML =
+          '<div class="alert alert-success">Thank you! Your message has been sent.</div>';
+        this.reset();
+      }
+    });
+  </script>
+</body>
+
+</html>

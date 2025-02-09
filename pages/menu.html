@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu - Lebanese Restaurant</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Existing Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .content-area {
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: #E67E22;
+        }
+
+        .custom-navbar {
+            background-color: darkred;
+            padding: 15px 0;
+        }
+
+        .custom-navbar .navbar-brand {
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff !important;
+        }
+
+        .custom-navbar .nav-link {
+            font-size: 16px;
+            color: #fff !important;
+            margin-left: 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .custom-navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #E67E22;
+            transition: width 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Menu Styles */
+        .menu-category-title {
+            font-size: 24px;
+            color: darkred;
+            border-bottom: 2px solid #E67E22;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .menu-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .item-price {
+            color: #E67E22;
+            font-weight: 600;
+            float: right;
+        }
+
+        .item-description {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .nav-tabs .nav-link {
+            font-size: 18px;
+            font-weight: 600;
+            color: #E67E22;
+            border: none;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #E67E22;
+            color: white;
+        }
+
+        .custom-footer {
+            background-color: darkred;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .custom-navbar .nav-link {
+                font-size: 14px;
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Al Saha</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-area container">
+        <h2 class="section-title">Our Menu</h2>
+
+        <!-- Menu Tabs -->
+        <ul class="nav nav-tabs justify-content-center" id="menuTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="food-tab" data-toggle="tab" href="#food">Main Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="drinks-tab" data-toggle="tab" href="#drinks">Drinks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="specials-tab" data-toggle="tab" href="#specials">Specials</a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="menuContent">
+            <!-- Food Menu -->
+            <div class="tab-pane fade show active" id="food">
+                <!-- Mezze Section -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Mezze & Starters</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Hummus<span class="item-price">$8.50</span></div>
+                            <div class="item-description">Chickpea purée with tahini, lemon, and olive oil</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Moutabal<span class="item-price">$9.00</span></div>
+                            <div class="item-description">Smoked eggplant dip with tahini and garlic</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Kibbeh Nayyeh<span class="item-price">$15.00</span></div>
+                            <div class="item-description">Raw lamb tartare with bulgur and spices</div>
+                        </div>
+                    </div>
+
+                    <!-- Sandwiches Section -->
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Famous Sandwiches</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Chicken Shawarma<span class="item-price">$12.50</span></div>
+                            <div class="item-description">Marinated chicken with garlic sauce and pickles</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Falafel Sandwich<span class="item-price">$10.00</span></div>
+                            <div class="item-description">Crispy falafel balls with tahini and vegetables</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Lamb Kebab<span class="item-price">$14.00</span></div>
+                            <div class="item-description">Grilled minced lamb with onion and parsley</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Courses -->
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Main Courses</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Mixed Grill Platter<span class="item-price">$28.00</span></div>
+                            <div class="item-description">Selection of shish tawook, kafta, and lamb chops</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Moussaka<span class="item-price">$18.00</span></div>
+                            <div class="item-description">Layered eggplant with spiced meat and tomatoes</div>
+                        </div>
+                    </div>
+
+                    <!-- Salads -->
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Salads</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Fattoush<span class="item-price">$10.00</span></div>
+                            <div class="item-description">Mixed greens with toasted pita and sumac dressing</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Tabbouleh<span class="item-price">$11.00</span></div>
+                            <div class="item-description">Parsley salad with bulgur, tomatoes, and lemon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drinks Menu -->
+            <div class="tab-pane fade" id="drinks">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Cold Beverages</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Ayran<span class="item-price">$4.00</span></div>
+                            <div class="item-description">Traditional yogurt drink with mint</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Jallab<span class="item-price">$5.00</span></div>
+                            <div class="item-description">Date molasses drink with rose water and pine nuts</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Hot Beverages</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Arabic Coffee<span class="item-price">$3.50</span></div>
+                            <div class="item-description">Traditional cardamom-flavored coffee</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Sahlab<span class="item-price">$4.50</span></div>
+                            <div class="item-description">Warm milk drink with orchid root and cinnamon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specials Menu -->
+            <div class="tab-pane fade" id="specials">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="menu-category-title">Daily Specials</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Mezze Platter for Two<span class="item-price">$25.00</span></div>
+                            <div class="item-description">Selection of 5 mezze with fresh pita (11am-3pm)</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Family Feast<span class="item-price">$45.00</span></div>
+                            <div class="item-description">Mixed grill platter with salads and dips (Serves 4)</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Weekend Special<span class="item-price">$15.00</span></div>
+                            <div class="item-description">Free dessert with any main course (Fri-Sun)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="custom-footer fixed-bottom">
+        <div class="container">
+            <p>&copy; 2024 Al Saha Lebanese Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
