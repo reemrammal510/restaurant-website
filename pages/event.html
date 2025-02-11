@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events - Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .content-area {
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: #E67E22;
+        }
+
+        .custom-navbar {
+            background-color: darkred;
+            padding: 15px 0;
+        }
+
+        .custom-navbar .navbar-brand {
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff !important;
+        }
+
+        .custom-navbar .nav-link {
+            font-size: 16px;
+            color: #fff !important;
+            margin-left: 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .custom-navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #E67E22;
+            transition: width 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .custom-navbar .nav-item.active .nav-link {
+            color: #E67E22 !important;
+        }
+
+        .hero {
+            position: relative;
+            height: 355px;
+            background: url('../images/event1.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__content h1 {
+            font-size: 48px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .hero__scroll-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: none;
+            color: #E67E22;
+            font-size: 32px;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .hero__scroll-btn:hover {
+            color: #CF711F;
+        }
+
+        .event-card {
+            position: relative;
+            width: 100%;
+            padding-bottom: 65%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .event-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(230, 126, 34, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .event-card:hover .event-overlay {
+            opacity: 1;
+        }
+
+        .event-overlay h4 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .event-overlay p {
+            color: #fff;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .event-overlay .btn {
+            margin-top: 10px;
+            background-color: #fff;
+            color: darkred;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .event-overlay .btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        .custom-footer {
+            background-color: darkred;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .custom-navbar .nav-link {
+                font-size: 14px;
+                margin-left: 10px;
+            }
+
+            .hero__content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Restaurant</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="event.html">Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section id="hero" aria-label="hero-section" class="hero">
+        <div class="hero__content container">
+            <h1>What's Going On?</h1>
+        </div>
+        <a href="#events" class="hero__scroll-btn">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            <span class="sr-only">Scroll Down to Content</span>
+        </a>
+    </section>
+    <main class="container content-area" id="events">
+        <h2 class="section-title">Upcoming Events</h2>
+        <!-- Yearly Events Section -->
+        <section id="yearly-events">
+            <h3 class="section-title" style="font-size: 28px;">Yearly Events</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="event-card" style="background-image: url('../images/iftar.jpg');">
+                        <div class="event-overlay">
+                            <h4>Ramadan Iftar</h4>
+                            <p>March 1, 2025 – April 1, 2025</p>
+                            <p>Daily 5:30 PM - 7:00 PM</p>
+                            <p>Join us each evening during Ramadan for a heartwarming Iftar experience with authentic
+                                dishes.</p>
+                            <a href="reservation.html" class="btn btn-light">Reserve Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="event-card" style="background-image: url('../images/eid.jpg');">
+                        <div class="event-overlay">
+                            <h4>Eid Celebration</h4>
+                            <p>April 2, 2025</p>
+                            <p>12:00 PM - 5:00 PM</p>
+                            <p>Celebrate Eid with a sumptuous feast and joyful festivities following Ramadan.</p>
+                            <a href="reservation.html" class="btn btn-light">Reserve Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Special Events Section -->
+        <section id="special-events">
+            <h3 class="section-title" style="font-size: 28px;">Special Events</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="event-card" style="background-image: url('../images/birthday.jpg');" data-toggle="modal"
+                        data-target="#birthdayModal">
+                        <div class="event-overlay">
+                            <h4>Birthday Party</h4>
+                            <p>5:00 PM - 10:00 PM</p>
+                            <p>Click for details</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="event-card" style="background-image: url('../images/wedding.jpg');" data-toggle="modal"
+                        data-target="#weddingModal">
+                        <div class="event-overlay">
+                            <h4>Wedding Celebration</h4>
+                            <p>3:00 PM - 9:00 PM</p>
+                            <p>Click for details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Birthday Party Modal -->
+    <div class="modal fade" id="birthdayModal" tabindex="-1" role="dialog" aria-labelledby="birthdayModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: darkred; color: #fff;">
+                    <h5 class="modal-title" id="birthdayModalLabel">Birthday Party Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Time:</strong> 5:00 PM - 10:00 PM</p>
+                    <p>
+                        Experience a spectacular birthday celebration with us! Enjoy a personalized gourmet menu,
+                        vibrant décor, live entertainment, and a surprise performance to light up your special day. Our
+                        expert team tailors every detail to create an unforgettable birthday bash.
+                    </p>
+                    <ul>
+                        <li>Tailor-made gourmet menu and drinks</li>
+                        <li>Exquisite décor and ambient lighting</li>
+                        <li>Live DJ and entertainment</li>
+                        <li>Personalized surprises for the guest of honor</li>
+                        <li>Exclusive birthday cake and dessert platter</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Wedding Celebration Modal -->
+    <div class="modal fade" id="weddingModal" tabindex="-1" role="dialog" aria-labelledby="weddingModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: darkred; color: #fff;">
+                    <h5 class="modal-title" id="weddingModalLabel">Wedding Celebration Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Time:</strong> 3:00 PM - 9:00 PM</p>
+                    <p>
+                        Step into a world of romance and luxury with our premier wedding celebration package. Our
+                        elegant venue is transformed to reflect your personal style with exquisite floral arrangements,
+                        ambient lighting, and refined décor. Enjoy a bespoke gourmet menu, dedicated wedding planning,
+                        live entertainment, and professional photography to capture every cherished moment.
+                    </p>
+                    <ul>
+                        <li>Bespoke venue styling with custom floral arrangements</li>
+                        <li>Tailor-made gourmet catering experience</li>
+                        <li>Dedicated wedding coordinator</li>
+                        <li>Live band and DJ for entertainment</li>
+                        <li>Professional photography &amp; videography services</li>
+                        <li>Luxurious décor and ambiance</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="custom-footer">
+        <div class="container">
+            <p>&copy; 2025 Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

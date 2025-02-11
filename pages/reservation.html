@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation - Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .content-area {
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: #E67E22;
+        }
+
+        .custom-navbar {
+            background-color: darkred;
+            padding: 15px 0;
+        }
+
+        .custom-navbar .navbar-brand {
+            font-size: 28px;
+            font-weight: 600;
+            color: #fff !important;
+        }
+
+        .custom-navbar .nav-link {
+            font-size: 16px;
+            color: #fff !important;
+            margin-left: 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .custom-navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background-color: #E67E22;
+            transition: width 0.3s ease;
+        }
+
+        .custom-navbar .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .custom-navbar .nav-item.active .nav-link {
+            color: #E67E22 !important;
+        }
+
+        .hero {
+            position: relative;
+            height: 355px;
+            background: url('../images/reserve1.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero__content h1 {
+            font-size: 48px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .reservation-form {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .reservation-form .form-control {
+            border-radius: 0;
+            border-color: #ccc;
+        }
+
+        .reservation-form .btn-submit {
+            background-color: #E67E22;
+            color: darkred;
+            border: none;
+            padding: 12px 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .reservation-form .btn-submit:hover {
+            background-color: #CF711F;
+            color: #fff;
+        }
+
+        .custom-footer {
+            background-color: darkred;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .custom-navbar .nav-link {
+                font-size: 14px;
+                margin-left: 10px;
+            }
+
+            .hero__content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Restaurant</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="event.html">Events</a></li>
+                        <li class="nav-item active"><a class="nav-link active" href="reservation.html">Reservation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero__content container">
+            <h1>Reserve</h1>
+        </div>
+    </section>
+    <main class="container content-area">
+        <h2 class="section-title">Make Your Reservation</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="reservation-form">
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color: red;">*</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email address"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span style="color: red;">*</span></label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reservationDate">Reservation Date <span style="color: red;">*</span></label>
+                            <input type="date" class="form-control" id="reservationDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reservationTime">Reservation Time <span style="color: red;">*</span></label>
+                            <input type="time" class="form-control" id="reservationTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Number of Guests <span style="color: red;">*</span></label>
+                            <input type="number" class="form-control" id="guests" placeholder="Enter number of guests"
+                                min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="requests">Special Requests</label>
+                            <textarea class="form-control" id="requests" rows="3"
+                                placeholder="Any special requests?"></textarea>
+                        </div>
+                        <div id="formFeedback"></div>
+                        <button type="submit" class="btn btn-submit btn-block">Submit Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("reservationForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Display an alert message
+                alert("Thank you! Your reservation has been submitted successfully.");
+
+                // Optionally, reset the form after submission
+                this.reset();
+            });
+        });
+    </script>
+</body>
+
+</html>

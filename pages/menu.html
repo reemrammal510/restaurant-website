@@ -13,12 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Existing Styles */
+        /* Global Styles */
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #fafafa;
         }
 
         .content-area {
@@ -33,8 +34,10 @@
             margin-bottom: 40px;
             text-transform: uppercase;
             color: #E67E22;
+            letter-spacing: 1px;
         }
 
+        /* Navbar */
         .custom-navbar {
             background-color: darkred;
             padding: 15px 0;
@@ -52,6 +55,11 @@
             margin-left: 20px;
             position: relative;
             transition: color 0.3s ease;
+        }
+
+        .custom-navbar .nav-item.active .nav-link {
+            color: #E67E22 !important;
+            text-shadow: 0 0 10px #E67E22;
         }
 
         .custom-navbar .nav-link::after {
@@ -76,11 +84,18 @@
             border-bottom: 2px solid #E67E22;
             padding-bottom: 10px;
             margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .menu-item {
             padding: 15px 0;
             border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: #f9f9f9;
         }
 
         .item-name {
@@ -113,6 +128,7 @@
             color: white;
         }
 
+        /* Footer */
         .custom-footer {
             background-color: darkred;
             color: #fff;
@@ -135,26 +151,37 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Al Saha</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg custom-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Restaurant</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
 
-    <!-- Main Content -->
+                        <li class="nav-item ">
+                            <a class="nav-link" href="index.html">Overview</a>
+                        </li>
+                        <li class="nav-item active ">
+                            <a class="nav-link" href="menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="event.html">Events</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="reservation.html">Reservation</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <main class="content-area container">
         <h2 class="section-title">Our Menu</h2>
-
-        <!-- Menu Tabs -->
         <ul class="nav nav-tabs justify-content-center" id="menuTabs" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="food-tab" data-toggle="tab" href="#food">Main Menu</a>
@@ -163,61 +190,102 @@
                 <a class="nav-link" id="drinks-tab" data-toggle="tab" href="#drinks">Drinks</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" id="appetizers-tab" data-toggle="tab" href="#appetizers">Appetizers</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="specials-tab" data-toggle="tab" href="#specials">Specials</a>
             </li>
         </ul>
-
-        <!-- Tab Content -->
         <div class="tab-content mt-4" id="menuContent">
-            <!-- Food Menu -->
+
             <div class="tab-pane fade show active" id="food">
-                <!-- Mezze Section -->
+
                 <div class="row">
+
                     <div class="col-md-6">
                         <h3 class="menu-category-title">Mezze & Starters</h3>
                         <div class="menu-item">
-                            <div class="item-name">Hummus<span class="item-price">$8.50</span></div>
+                            <div class="item-name">Hummus <span class="item-price">$8.50</span></div>
                             <div class="item-description">Chickpea purée with tahini, lemon, and olive oil</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Moutabal<span class="item-price">$9.00</span></div>
+                            <div class="item-name">Moutabal <span class="item-price">$9.00</span></div>
                             <div class="item-description">Smoked eggplant dip with tahini and garlic</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Kibbeh Nayyeh<span class="item-price">$15.00</span></div>
+                            <div class="item-name">Kibbeh Nayyeh <span class="item-price">$15.00</span></div>
                             <div class="item-description">Raw lamb tartare with bulgur and spices</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Labneh with Garlic & Mint <span class="item-price">$8.00</span></div>
+                            <div class="item-description">Strained yogurt with fresh garlic, mint, and olive oil</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Stuffed Grape Leaves <span class="item-price">$9.50</span></div>
+                            <div class="item-description">Rice, herbs, and spices wrapped in grape leaves</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Spicy Potatoes (Batata Harra) <span class="item-price">$9.00</span>
+                            </div>
+                            <div class="item-description">Crispy potatoes tossed in garlic, cilantro, and chili</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Cheese Rolls (Rakakat) <span class="item-price">$10.00</span></div>
+                            <div class="item-description">Crispy phyllo rolls stuffed with cheese and herbs</div>
                         </div>
                     </div>
 
-                    <!-- Sandwiches Section -->
+                    <!-- Famous Sandwiches -->
                     <div class="col-md-6">
                         <h3 class="menu-category-title">Famous Sandwiches</h3>
                         <div class="menu-item">
-                            <div class="item-name">Chicken Shawarma<span class="item-price">$12.50</span></div>
+                            <div class="item-name">Chicken Shawarma <span class="item-price">$12.50</span></div>
                             <div class="item-description">Marinated chicken with garlic sauce and pickles</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Falafel Sandwich<span class="item-price">$10.00</span></div>
-                            <div class="item-description">Crispy falafel balls with tahini and vegetables</div>
+                            <div class="item-name">Meat Shawarma <span class="item-price">$13.50</span></div>
+                            <div class="item-description">Juicy spiced beef wrapped in flatbread with veggies</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Lamb Kebab<span class="item-price">$14.00</span></div>
-                            <div class="item-description">Grilled minced lamb with onion and parsley</div>
+                            <div class="item-name">Turkey Shawarma <span class="item-price">$12.00</span></div>
+                            <div class="item-description">Thinly sliced turkey with garlic sauce and pickles</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Falafel Sandwich <span class="item-price">$10.00</span></div>
+                            <div class="item-description">Crispy falafel balls with tahini and fresh vegetables</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Kafta Sandwich <span class="item-price">$11.50</span></div>
+                            <div class="item-description">Grilled kafta with onions, parsley, and hummus</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Grilled Halloumi Sandwich <span class="item-price">$10.50</span>
+                            </div>
+                            <div class="item-description">Grilled halloumi cheese with tomato and mint</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Main Courses -->
+                <!-- Second Row: Main Courses & Salads -->
                 <div class="row mt-5">
+                    <!-- Main Courses -->
                     <div class="col-md-6">
                         <h3 class="menu-category-title">Main Courses</h3>
                         <div class="menu-item">
-                            <div class="item-name">Mixed Grill Platter<span class="item-price">$28.00</span></div>
+                            <div class="item-name">Mixed Grill Platter <span class="item-price">$28.00</span></div>
                             <div class="item-description">Selection of shish tawook, kafta, and lamb chops</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Moussaka<span class="item-price">$18.00</span></div>
+                            <div class="item-name">Moussaka <span class="item-price">$18.00</span></div>
                             <div class="item-description">Layered eggplant with spiced meat and tomatoes</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Shish Tawook <span class="item-price">$19.00</span></div>
+                            <div class="item-description">Grilled marinated chicken skewers with garlic dip</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Lamb Chops <span class="item-price">$24.00</span></div>
+                            <div class="item-description">Grilled lamb chops served with rice and grilled veggies</div>
                         </div>
                     </div>
 
@@ -225,42 +293,220 @@
                     <div class="col-md-6">
                         <h3 class="menu-category-title">Salads</h3>
                         <div class="menu-item">
-                            <div class="item-name">Fattoush<span class="item-price">$10.00</span></div>
+                            <div class="item-name">Fattoush <span class="item-price">$10.00</span></div>
                             <div class="item-description">Mixed greens with toasted pita and sumac dressing</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Tabbouleh<span class="item-price">$11.00</span></div>
+                            <div class="item-name">Tabbouleh <span class="item-price">$11.00</span></div>
                             <div class="item-description">Parsley salad with bulgur, tomatoes, and lemon</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Row: Manaqesh & Wraps -->
+                <div class="row mt-5">
+                    <!-- Manaqesh -->
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Manaqesh (Levantine Flatbreads)</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Zaatar Manaqesh <span class="item-price">$7.50</span></div>
+                            <div class="item-description">Flatbread topped with thyme, sesame, and sumac</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Cheese Manaqesh <span class="item-price">$8.50</span></div>
+                            <div class="item-description">Flatbread with melted cheese and a sprinkle of zaatar</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Meat Manaqesh <span class="item-price">$9.50</span></div>
+                            <div class="item-description">Flatbread with spiced minced lamb and pine nuts</div>
+                        </div>
+                    </div>
+
+                    <!-- Lebanese Pita Wraps -->
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Lebanese Pita Wraps</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Chicken Pita Wrap <span class="item-price">$11.00</span></div>
+                            <div class="item-description">Grilled chicken with garlic sauce wrapped in warm pita</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Beef Pita Wrap <span class="item-price">$12.00</span></div>
+                            <div class="item-description">Sliced beef with tahini and pickles in soft pita bread</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Falafel Pita Wrap <span class="item-price">$9.00</span></div>
+                            <div class="item-description">Crispy falafel with fresh veggies and tahini sauce</div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
             <!-- Drinks Menu -->
             <div class="tab-pane fade" id="drinks">
                 <div class="row">
+                    <!-- Cold Beverages -->
                     <div class="col-md-6">
                         <h3 class="menu-category-title">Cold Beverages</h3>
                         <div class="menu-item">
-                            <div class="item-name">Ayran<span class="item-price">$4.00</span></div>
+                            <div class="item-name">Ayran <span class="item-price">$4.00</span></div>
                             <div class="item-description">Traditional yogurt drink with mint</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Jallab<span class="item-price">$5.00</span></div>
+                            <div class="item-name">Jallab <span class="item-price">$5.00</span></div>
                             <div class="item-description">Date molasses drink with rose water and pine nuts</div>
                         </div>
+                        <div class="menu-item">
+                            <div class="item-name">Fresh Mint Lemonade <span class="item-price">$5.50</span></div>
+                            <div class="item-description">Refreshing lemonade infused with mint</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Pomegranate Juice <span class="item-price">$6.00</span></div>
+                            <div class="item-description">Freshly squeezed pomegranate juice</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Pepsi <span class="item-price">$3.00</span></div>
+                            <div class="item-description">Classic refreshing Pepsi</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">7UP <span class="item-price">$3.00</span></div>
+                            <div class="item-description">Crisp and refreshing lemon-lime soda</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Mirinda <span class="item-price">$3.00</span></div>
+                            <div class="item-description">Sweet and tangy orange soda</div>
+                        </div>
                     </div>
+
+                    <!-- Hot Beverages -->
                     <div class="col-md-6">
                         <h3 class="menu-category-title">Hot Beverages</h3>
                         <div class="menu-item">
-                            <div class="item-name">Arabic Coffee<span class="item-price">$3.50</span></div>
+                            <div class="item-name">Arabic Coffee <span class="item-price">$3.50</span></div>
                             <div class="item-description">Traditional cardamom-flavored coffee</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Sahlab<span class="item-price">$4.50</span></div>
+                            <div class="item-name">Sahlab <span class="item-price">$4.50</span></div>
                             <div class="item-description">Warm milk drink with orchid root and cinnamon</div>
                         </div>
+                        <div class="menu-item">
+                            <div class="item-name">Cardamom Tea <span class="item-price">$3.00</span></div>
+                            <div class="item-description">Fragrant tea with a hint of cardamom</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Lebanese Coffee <span class="item-price">$4.00</span></div>
+                            <div class="item-description">Strong coffee served with a side of dates</div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Natural Juices Section -->
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <h3 class="menu-category-title">Natural Juices</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Fresh Orange Juice <span class="item-price">$5.00</span></div>
+                            <div class="item-description">100% freshly squeezed orange juice</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Carrot Juice <span class="item-price">$5.00</span></div>
+                            <div class="item-description">Freshly squeezed carrot juice, a natural energy booster</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Mixed Fruit Juice <span class="item-price">$6.00</span></div>
+                            <div class="item-description">A blend of seasonal fruits, freshly squeezed</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Apple Juice <span class="item-price">$5.00</span></div>
+                            <div class="item-description">Freshly squeezed apple juice with a crisp taste</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appetizers Menu -->
+            <div class="tab-pane fade" id="appetizers">
+                <h3 class="menu-category-title">Appetizers</h3>
+
+                <div class="menu-item">
+                    <div class="item-name">Cheese Rolls <span class="item-price">$7.00</span></div>
+                    <div class="item-description">Crispy rolls filled with melted cheese and herbs</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Stuffed Grape Leaves <span class="item-price">$8.50</span></div>
+                    <div class="item-description">Delicate grape leaves stuffed with seasoned rice</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Fried Kibbeh <span class="item-price">$10.00</span></div>
+                    <div class="item-description">Crispy bulgur shells stuffed with spiced minced beef</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Spicy Potato Harra <span class="item-price">$9.00</span></div>
+                    <div class="item-description">Golden-fried potatoes tossed with garlic, cilantro, and chili</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Grilled Halloumi <span class="item-price">$9.50</span></div>
+                    <div class="item-description">Grilled halloumi cheese served with cherry tomatoes</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Chicken Liver <span class="item-price">$10.50</span></div>
+                    <div class="item-description">Sautéed chicken liver in a pomegranate molasses glaze</div>
+                </div>
+
+                <h3 class="menu-category-title mt-5">Hookah & Desserts</h3>
+
+                <!-- Hookah Options -->
+                <div class="menu-item">
+                    <div class="item-name">Classic Hookah <span class="item-price">$15.00</span></div>
+                    <div class="item-description">Traditional shisha with your choice of flavor</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Premium Hookah <span class="item-price">$18.00</span></div>
+                    <div class="item-description">Top-tier flavors with an ice-cold hose for a smoother experience</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Double Apple Hookah <span class="item-price">$16.00</span></div>
+                    <div class="item-description">Aromatic blend of red and green apples for a classic taste</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Grapefruit Mint Hookah <span class="item-price">$17.00</span></div>
+                    <div class="item-description">Refreshing citrus-infused shisha with a cooling mint finish</div>
+                </div>
+
+                <!-- Crepes Section -->
+                <h4 class="menu-category-title mt-4">Crepes</h4>
+
+                <div class="menu-item">
+                    <div class="item-name">Nutella Crepe <span class="item-price">$10.00</span></div>
+                    <div class="item-description">Warm crepe filled with Nutella and banana slices</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Lotus Biscoff Crepe <span class="item-price">$11.00</span></div>
+                    <div class="item-description">Soft crepe drizzled with caramel and crunchy Lotus crumbs</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Strawberry & Cream Crepe <span class="item-price">$10.50</span></div>
+                    <div class="item-description">Fresh strawberries with sweet cream and powdered sugar</div>
+                </div>
+
+                <!-- Cakes Section -->
+                <h4 class="menu-category-title mt-4">Cakes</h4>
+
+                <div class="menu-item">
+                    <div class="item-name">Baklava Cheesecake <span class="item-price">$8.00</span></div>
+                    <div class="item-description">Cheesecake with layers of crunchy baklava</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Kunafa Cheesecake <span class="item-price">$9.50</span></div>
+                    <div class="item-description">Fusion of creamy cheesecake and crispy kunafa crust</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Chocolate Lava Cake <span class="item-price">$9.00</span></div>
+                    <div class="item-description">Warm chocolate cake with a molten chocolate center</div>
+                </div>
+                <div class="menu-item">
+                    <div class="item-name">Tiramisu <span class="item-price">$8.50</span></div>
+                    <div class="item-description">Classic coffee-flavored Italian dessert with mascarpone</div>
                 </div>
             </div>
 
@@ -268,29 +514,76 @@
             <div class="tab-pane fade" id="specials">
                 <div class="row">
                     <div class="col-12">
+                        <!-- Daily Specials -->
                         <h3 class="menu-category-title">Daily Specials</h3>
                         <div class="menu-item">
-                            <div class="item-name">Mezze Platter for Two<span class="item-price">$25.00</span></div>
-                            <div class="item-description">Selection of 5 mezze with fresh pita (11am-3pm)</div>
+                            <div class="item-name">Mezze Platter for Two <span class="item-price">$25.00</span></div>
+                            <div class="item-description">Selection of 5 mezze served with fresh pita (11am-3pm)</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Family Feast<span class="item-price">$45.00</span></div>
+                            <div class="item-name">Lunch Special <span class="item-price">$18.00</span></div>
+                            <div class="item-description">Chef’s selection: soup, salad, and main course (Mon-Fri)</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Family Feast <span class="item-price">$45.00</span></div>
                             <div class="item-description">Mixed grill platter with salads and dips (Serves 4)</div>
                         </div>
                         <div class="menu-item">
-                            <div class="item-name">Weekend Special<span class="item-price">$15.00</span></div>
+                            <div class="item-name">Weekend Special <span class="item-price">$15.00</span></div>
                             <div class="item-description">Free dessert with any main course (Fri-Sun)</div>
                         </div>
+
+                        <!-- Family Combos -->
+                        <h3 class="menu-category-title mt-5">Family Combos</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Family Feast Combo <span class="item-price">$50.00</span></div>
+                            <div class="item-description">Serves 4: A generous selection of mezze, grilled meats, and
+                                fresh sides</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Grand Family Combo <span class="item-price">$65.00</span></div>
+                            <div class="item-description">Serves 5: Includes a variety of mezze, main courses, fresh
+                                salads, and a dessert
+                                platter</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Chef's Daily Special Combo <span class="item-price">$30.00</span>
+                            </div>
+                            <div class="item-description">A handpicked meal by our chef, featuring the day's freshest
+                                ingredients and flavors
+                            </div>
+                        </div>
+
+                        <!-- Children's Combo -->
+                        <h3 class="menu-category-title mt-5">Children's Combo</h3>
+                        <div class="menu-item">
+                            <div class="item-name">Little Chicken Nuggets Meal <span class="item-price">$12.00</span>
+                            </div>
+                            <div class="item-description">Crispy chicken nuggets served with a side of golden fries and
+                                a refreshing juice box
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Mini Falafel Feast <span class="item-price">$14.00</span></div>
+                            <div class="item-description">Delicious mini falafel served with creamy hummus, fresh pita
+                                bread, and a chilled soft
+                                drink</div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-name">Grilled Cheese Delight <span class="item-price">$13.00</span></div>
+                            <div class="item-description">Melted cheese between toasted bread, served with crunchy
+                                cucumber slices and a creamy
+                                milkshake</div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="custom-footer fixed-bottom">
+    <footer class="custom-footer">
         <div class="container">
-            <p>&copy; 2024 Al Saha Lebanese Restaurant. All rights reserved.</p>
+            <p>&copy; 2025 Restaurant. All rights reserved.</p>
         </div>
     </footer>
 

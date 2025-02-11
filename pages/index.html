@@ -28,12 +28,43 @@
 
     .section-title {
       text-align: center;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 600;
-      margin-bottom: 40px;
+      margin: 20px 0;
       text-transform: uppercase;
       color: #E67E22;
-      /* Dark orange accent */
+    }
+
+    /* Hoverable Divider Above Titles */
+    .hoverable-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0 10px 0;
+      cursor: pointer;
+    }
+
+    .hoverable-divider .divider-line {
+      width: 20%;
+      height: 2px;
+      background-color: #E67E22;
+      margin: 0 10px;
+      transition: width 0.3s ease;
+    }
+
+    .hoverable-divider .divider-text {
+      color: #E67E22;
+      font-size: 16px;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    .hoverable-divider:hover .divider-line {
+      width: 40%;
+    }
+
+    .hoverable-divider:hover .divider-text {
+      opacity: 1;
     }
 
     /* Custom Navbar */
@@ -67,65 +98,141 @@
       transition: width 0.3s ease;
     }
 
+    .custom-navbar .nav-item.active .nav-link {
+      color: #E67E22 !important;
+      text-shadow: 0 0 10px #E67E22;
+    }
+
     .custom-navbar .nav-link:hover::after {
       width: 100%;
     }
 
-    /* Specialties Section */
-    .specialty-container {
-      margin-bottom: 30px;
+
+
+    /* Our Story Section */
+    #our-story p {
+      font-size: 18px;
+      line-height: 1.6;
     }
 
-    .specialty {
+    /* Our Story Image Hover Overlay */
+    .our-story-image {
       position: relative;
-      width: 100%;
-      padding-bottom: 75%;
-      /* 4:3 Aspect Ratio */
-      background-size: cover;
-      background-position: center;
-      border-radius: 8px;
       overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .our-story-image img {
+      width: 100%;
+      display: block;
       transition: transform 0.3s ease;
     }
 
-    .specialty:hover {
+    .our-story-image:hover img {
       transform: scale(1.05);
     }
 
-    .specialty-overlay {
+    .story-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(230, 126, 34, 0.7);
-      /* Dark orange overlay */
       opacity: 0;
       transition: opacity 0.3s ease;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      padding: 15px;
     }
 
-    .specialty:hover .specialty-overlay {
+    .our-story-image:hover .story-overlay {
       opacity: 1;
     }
 
-    .specialty-overlay h4 {
-      color: #fff;
-      font-size: 20px;
-      margin: 0;
+    .story-overlay .line {
+      width: 80%;
+      height: 2px;
+      background-color: #E67E22;
+      margin: 5px auto;
     }
 
-    /* Our Story Section */
-    #our-story img {
-      width: 100%;
+    .story-overlay .story-text {
+      color: #fff;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    /* What Do We Serve Section */
+    .serve-section {
+      position: relative;
+      margin: 80px 0;
+      overflow: hidden;
       border-radius: 8px;
     }
 
-    #our-story p {
+    .serve-section .serve-image {
+      width: 100%;
+      height: 400px;
+      background: url('../images/table.jpg') no-repeat center center;
+      background-size: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .serve-section:hover .serve-image {
+      transform: scale(1.05);
+    }
+
+    .serve-section .serve-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(230, 126, 34, 0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .serve-section:hover .serve-overlay {
+      opacity: 1;
+    }
+
+    .serve-overlay h2 {
+      color: #fff;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .serve-overlay .samples {
+      color: #fff;
       font-size: 18px;
-      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .serve-overlay .btn {
+      background-color: #fff;
+      color: darkred;
+      border: none;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .serve-overlay .btn:hover {
+      background-color: #f1f1f1;
     }
 
     /* Contact Section */
@@ -155,6 +262,95 @@
       font-size: 14px;
     }
 
+    /* Specialties Section – Full-Width Slider */
+    #specialties {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin: 50px 0;
+      /* Adjust vertical spacing as needed */
+    }
+
+    /* Slider Container */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      /* Adjust the slider height as needed */
+      overflow: hidden;
+    }
+
+    /* Individual Slides */
+    .slider .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      /* Each slide uses a combined linear gradient overlay with the image */
+      opacity: 0;
+      animation: fade 16s infinite;
+    }
+
+    /* Stagger the animation delays for each slide */
+    .slider .slide:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .slider .slide:nth-child(2) {
+      animation-delay: 4s;
+    }
+
+    .slider .slide:nth-child(3) {
+      animation-delay: 8s;
+    }
+
+    .slider .slide:nth-child(4) {
+      animation-delay: 12s;
+    }
+
+    /* Keyframes for the Fade Animation */
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      35% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Optional Text Overlay on the Slider */
+    .slider-text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .slider-text h2 {
+      color: #E67E22;
+      font-size: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .section-title {
@@ -170,7 +366,6 @@
 </head>
 
 <body>
-  <!-- Fixed Header with Custom Navbar -->
   <header class="fixed-top">
     <nav class="navbar navbar-expand-lg custom-navbar">
       <div class="container">
@@ -187,12 +382,13 @@
             <li class="nav-item">
               <a class="nav-link" href="menu.html">Menu</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About Us</a>
+            <li class="nav-item   ">
+              <a class="nav-link" href="event.html">Events</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="reservation.html">Reservation</a>
             </li>
+
           </ul>
         </div>
       </div>
@@ -201,51 +397,46 @@
 
   <!-- Main Content -->
   <main class="container content-area">
-    <!-- Section 1: Our Specialties with Image Hover Effects -->
-    <section id="specialties" class="my-5">
-      <h2 class="section-title">Our Specialties</h2>
-      <div class="row">
-        <!-- Shawarma -->
-        <div class="col-md-3 col-sm-6 specialty-container">
-          <div class="specialty" style="background-image: url('../images/shawarma.jpg');">
-            <div class="specialty-overlay">
-              <h4>Shawarma</h4>
-            </div>
-          </div>
+    <!-- Section 1: Our Specialties (Full-Width Slider) -->
+    <section id="specialties">
+      <!-- Slider Container -->
+      <div class="slider">
+        <div class="slide"
+          style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url('../images/shawarma1.jpg');">
         </div>
-        <!-- Tabouli -->
-        <div class="col-md-3 col-sm-6 specialty-container">
-          <div class="specialty" style="background-image: url('../images/tabouli.jpg');">
-            <div class="specialty-overlay">
-              <h4>Tabouli</h4>
-            </div>
-          </div>
+        <div class="slide"
+          style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url('../images/tabouli.jpg');">
         </div>
-        <!-- Homous -->
-        <div class="col-md-3 col-sm-6 specialty-container">
-          <div class="specialty" style="background-image: url('../images/homous.jpg');">
-            <div class="specialty-overlay">
-              <h4>Homous</h4>
-            </div>
-          </div>
+        <div class="slide"
+          style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url('../images/homous.jpg');">
         </div>
-        <!-- Mashawi -->
-        <div class="col-md-3 col-sm-6 specialty-container">
-          <div class="specialty" style="background-image: url('../images/mashawi.jpg');">
-            <div class="specialty-overlay">
-              <h4>Mashawi</h4>
-            </div>
-          </div>
+        <div class="slide"
+          style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%), url('../images/mashawi.jpg');">
         </div>
       </div>
+      <!-- Optional Slider Text Overlay -->
+      <div class="slider-text">
+        <h2 class="section-title">Our Specialties</h2>
+      </div>
     </section>
-
-    <!-- Section 2: Our Story (Image on Left, Text on Right) -->
+    <!-- Section 2: Our Story -->
     <section id="our-story" class="my-5">
-      <h2 class="section-title">Our Story</h2>
+      <div class="hoverable-divider">
+        <span class="divider-line"></span>
+        <span class="divider-text">
+          <h2 class="section-title">Our Story</h2>
+        </span>
+        <span class="divider-line"></span>
+      </div>
+      <br>
       <div class="row align-items-center">
-        <div class="col-md-6">
-          <img src="../images/our-story.jpg" class="img-fluid" alt="Our Story" />
+        <div class="col-md-6 our-story-image">
+          <img src="../images/meeting.jpg" class="img-fluid" alt="Our Story" />
+          <div class="story-overlay">
+            <div class="line"></div>
+            <div class="story-text">Discover our Legacy</div>
+            <div class="line"></div>
+          </div>
         </div>
         <div class="col-md-6">
           <p>
@@ -257,9 +448,40 @@
       </div>
     </section>
 
-    <!-- Section 3: Contact Us -->
+    <!-- Section 3: What Do We Serve? -->
+    <section id="what-we-serve" class="my-5">
+      <div class="hoverable-divider">
+        <span class="divider-line"></span>
+        <span class="divider-text">
+          <h2 class="section-title">What Do We Serve?</h2>
+        </span>
+        <span class="divider-line"></span>
+      </div>
+
+      <div class="serve-section">
+        <div class="serve-image"
+          style="background: url('../images/service.jpg') no-repeat center center; background-size: cover;"></div>
+        <div class="serve-overlay">
+          <h2>What Do We Serve?</h2>
+          <p class="samples">
+            Enjoy authentic Lebanese dishes such as Shawarma, Tabouli, Homous, and Mashawi.
+          </p>
+          <a href="menu.html" class="btn">View Menu</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Section 4: Contact Us -->
     <section id="contact" class="my-5">
-      <h2 class="section-title">Contact Us</h2>
+      <div class="hoverable-divider">
+        <span class="divider-line"></span>
+        <span class="divider-text">
+          <h2 class="section-title">Contact Us</h2>
+        </span>
+        <span class="divider-line"></span>
+      </div>
+      <br>
       <div class="row justify-content-center">
         <div class="col-md-6">
           <form id="contactForm">
